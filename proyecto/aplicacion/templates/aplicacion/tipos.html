@@ -1,0 +1,51 @@
+
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Tipos</h1>
+{% endblock titulo %}
+
+
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Tipos</h2></td>
+        <td>
+            <a
+            href="{% url 'tiposCrear' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Renta</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for c in tipo %}
+        <tr>
+            <td>{{ c.tipo }}</td>
+            <td>{{ c.renta }}</td>
+          </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock contenido %}
+
+
+{% block contenidop %}
+
+
+
+{% endblock contenidop %}

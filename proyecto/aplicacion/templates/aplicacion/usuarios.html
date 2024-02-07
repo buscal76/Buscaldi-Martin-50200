@@ -1,0 +1,55 @@
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Usuarios</h1>
+{% endblock titulo %}
+
+
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Usuarios</h2></td>
+        <td>
+            <a
+            href="{% url 'usuariosCrear' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>e-mail</th>
+            <th>Profesíon</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for u in usuario %}
+        <tr>
+            <td>{{ u.nombre }}</td>
+            <td>{{ u.apellido }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.profesion }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+
+
+{% endblock contenido %}
+
+
+{% block contenidop %}
+
+
+
+{% endblock contenidop %}

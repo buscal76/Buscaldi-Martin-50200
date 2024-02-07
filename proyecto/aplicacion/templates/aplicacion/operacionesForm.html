@@ -1,0 +1,27 @@
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Operaciones(ABM)</h1>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+
+<form action="" method="post">
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+    
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock contenido %}
+
+
+
+
+{% block contenidop %}
+{% endblock contenidop %}

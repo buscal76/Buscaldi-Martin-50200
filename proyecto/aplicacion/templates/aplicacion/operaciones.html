@@ -1,0 +1,60 @@
+
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Operaciones</h1>
+{% endblock titulo %}
+
+
+
+
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Operaciones</h2></td>
+        <td>
+            <a
+            href="{% url 'operacionesCrear' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>e-mail</th>
+            <th>Nominales</th>
+            <th>Ticker</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for o in operacion %}
+        <tr>
+            <td>{{ o.tipo }}</td>
+            <td>{{ o.email }}</td>
+            <td>{{ o.nominales }}</td>
+            <td>{{ o.ticker }}</td>
+            <td>{{ o.fecha }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
+
+
+
+
+{% block contenidop %}
+
+
+
+
+{% endblock contenidop %}

@@ -1,0 +1,67 @@
+
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+
+</form>
+<h1 class="masthead-heading mb-0">Instrumentos</h1>
+<form action="{% url 'buscarInstrumentos' %}" method="get">
+    {% csrf_token %}
+
+    <p>Descripción:<input type="text" name="buscar" id="buscar"><input type="submit" value="Buscar"></p>
+    
+</form>
+
+
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td width="200"><h2>Instrumentos</h2></td>
+        
+        <td>
+            <a
+            href="{% url 'instrumentosCrear' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>   
+ 
+    </tr>
+
+</table>
+    
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Ticker</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for i in instrumentos %}
+        <tr>
+            <td>{{ i.tipo }}</td>
+            <td>{{ i.ticker }}</td>
+            <td>{{ i.descripcion }}</td>
+            <td>{{ i.precio }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock contenido %}
+
+
+{% block contenidop %}
+
+
+
+{% endblock contenidop %}
