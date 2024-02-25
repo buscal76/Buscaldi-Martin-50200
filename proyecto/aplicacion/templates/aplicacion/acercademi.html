@@ -1,0 +1,46 @@
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Acerca de Mi</h1>
+<h2 class="masthead-subheading mb-0">Mi nombre es Martín Buscaldi</h2>
+<a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Ver +</a>
+{% endblock titulo %}
+
+
+
+{% block contenido %}
+
+
+{% endblock contenido %}
+
+
+
+
+{% block contenidop %}
+{% load static %}
+  <!-- Content section 1-->
+  <section id="scroll">
+    <div class="container px-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6 order-lg-2">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'img/mi.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Datos Personales</h2>
+                    <h5> Vivo en Buenos Aires</h5>
+                    <h5>Tengo 48 años</h5>
+                    <h5>Estoy casado</h5>
+                    <h5>Tengo 1 hijo de 10 años</h5>
+                    <h2 class="display-4">Profesión</h2>
+                    <h5>Soy Contador Público</h5>
+                    <h5>Trabajo en Inteligencia Comercial en una cia de Seguros</h5>
+                    <h5>Estoy estudiando para especializarme en Data Science</h5>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock contenidop %}

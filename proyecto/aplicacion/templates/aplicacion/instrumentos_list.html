@@ -1,0 +1,80 @@
+
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+
+</form>
+<h1 class="masthead-heading mb-0">Instrumentos</h1>
+    <form action="{% url 'buscar_instrumento' %}" method="GET">
+        <input type="text" name="q" placeholder="Buscar descripción..." value="{{ query }}">
+        <button type="submit">Buscar</button>
+    </form>
+    
+    
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+
+<table>
+    <tr>
+        <td width="200"><h2>Instrumentos</h2></td>
+        
+        <td>
+            <a
+            href="{% url 'instrumentos_create' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>   
+ 
+    </tr>
+
+</table>
+    
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Ticker</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for a in instrumentos_list %}
+        <tr>
+            <td>{{ a.tipo }}</td>
+            <td>{{ a.ticker }}</td>
+            <td>{{ a.descripcion }}</td>
+            <td>{{ a.precio }}</td>
+            <td>
+                <a
+                href="{% url 'instrumentos_update' a.id %}"
+                class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+              </a>
+              <a
+                href="{% url 'instrumentos_delete' a.id %}"
+                class="btn btn-danger"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i> 
+                       
+            </td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock contenido %}
+
+
+{% block contenidop %}
+
+
+
+{% endblock contenidop %}

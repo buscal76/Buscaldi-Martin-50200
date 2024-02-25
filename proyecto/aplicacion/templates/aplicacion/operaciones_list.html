@@ -1,0 +1,75 @@
+
+{% extends 'aplicacion/home.html' %} 
+
+{% block titulo %}
+<h1 class="masthead-heading mb-0">Operaciones</h1>
+{% endblock titulo %}
+
+
+
+
+
+
+{% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Operaciones</h2></td>
+        <td>
+            <a
+            href="{% url 'operaciones_create' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Tipo</th>
+            <th>Cuenta</th>
+            <th>Nominales</th>
+            <th>Ticker</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for y in operaciones_list %}
+        <tr>
+            <td>{{ y.tipo }}</td>
+            <td>{{ y.cuenta }}</td>
+            <td>{{ y.nominales }}</td>
+            <td>{{ y.ticker }}</td>
+            <td>{{ y.fecha }}</td>
+            <td>
+                <a
+                href="{% url 'operaciones_update' y.id %}"
+                class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+              </a>
+              <a
+                href="{% url 'operaciones_delete' y.id %}"
+                class="btn btn-danger"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i> 
+                       
+            </td>      
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %}
+
+
+
+
+{% block contenidop %}
+
+
+
+
+{% endblock contenidop %}

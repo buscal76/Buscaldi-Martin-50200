@@ -19,21 +19,40 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">   
     </head>
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
             <div class="container px-5">
-                <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'home' %}">Inicio</a>    
+            
+            {% if user.is_authenticated %}
                 <a class="navbar-brand" href="{% url 'tipos' %}">Tipos</a>
                 <a class="navbar-brand" href="{% url 'instrumentos' %}">Instrumentos</a>
-                <a class="navbar-brand" href="{% url 'usuarios' %}">Usuarios</a>
-                <a class="navbar-brand" href="{% url 'operaciones' %}">Operaciones</a>                                
+                <a class="navbar-brand" href="{% url 'cuentas' %}">Cuentas</a>
+                <a class="navbar-brand" href="{% url 'operaciones' %}">Operaciones</a> 
+                <a class="navbar-brand" href="{% url 'acercademi' %}">Acerca de Mi</a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#!">Sign Up</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Log In</a></li>
+                        <div class="text-center">
+                            <a  href="{% url 'agregar_avatar' %}" ><img src="{{ request.session.avatar }}" height="40px" weight="40px"/></a>
+                        </div>     
+                        <li class="nav-item"><a class="nav-link" href="{% url 'editar_perfil' %}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Salir: {{user.username}}</a></li>
+                    </ul>
+                </div>                       
+                       
+            {% else %}
+                                           
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'registro' %}">Registrarse</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Ingresar</a></li>
                     </ul>
                 </div>
+            {% endif %}
             </div>
         </nav>
         <!-- Header-->
@@ -70,12 +89,12 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'assets/img/01.jpg' %}" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'img/04.jpg' %}" alt="..." /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">For those about to rock...</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <h2 class="display-4">Es hora de invertir desde la comodidad de tu casa</h2>
+                            <p>Descubrí una nueva manera de potenciar tus ahorros. Más de 23 años brindando las mejores alternativas de inversión.</p>
                         </div>
                     </div>
                 </div>
@@ -86,12 +105,12 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'assets/img/02.jpg' %}" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'img/02.jpg' %}" alt="..." /></div>
                     </div>
                     <div class="col-lg-6">
                         <div class="p-5">
-                            <h2 class="display-4">We salute you!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <h2 class="display-4">Estás a un click de potenciar tus ahorros</h2>
+                            <p>Con tu cuenta de Invertir en Casa podés poner tus pesos y dólares en movimiento fácil y rápido.</p>
                         </div>
                     </div>
                 </div>
@@ -102,12 +121,12 @@
             <div class="container px-5">
                 <div class="row gx-5 align-items-center">
                     <div class="col-lg-6 order-lg-2">
-                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'assets/img/03.jpg' %}" alt="..." /></div>
+                        <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'img/03.jpg' %}" alt="..." /></div>
                     </div>
                     <div class="col-lg-6 order-lg-1">
                         <div class="p-5">
-                            <h2 class="display-4">Let there be rock!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+                            <h2 class="display-4">Portafolio Simple</h2>
+                            <p>Son paquetes compuestos por un conjunto de CEDEARs,Obligaciones Negociables o Acciones que podés comprar en un click.</p>
                         </div>
                     </div>
                 </div>
